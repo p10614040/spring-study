@@ -23,7 +23,7 @@ org.springframework.spring-context.3.2.2.RELEASE
 <p>关于<code>lazy-init</code>配置，默认是default，初始化的时候就会载入并实例化，如果改为<code>lazy-init="true"</code>会变为在调用的时候才装载并初始化，但是这种方式明显在第一次调用时有性能损耗，所以一般不建议配置。</p>
 <p>关于<code>scope</code>配置，默认bean都是单例模式，如果需要设置成每次调用都实例化则需改成<code>scope="prototype"</code>。</p>
 
-<h2>bean的注入方式：构造器注入的四种方式</h2>
+<h2>bean的注入方式之一：构造器注入的四种方式</h2>
 第一种方法：根据索引赋值，索引都是以0开头的：
 <pre>        &lt;constructor-arg index="0" value="刘晓刚" /&gt;
          &lt;constructor-arg index="1" value="3500" /&gt;
@@ -47,3 +47,20 @@ org.springframework.spring-context.3.2.2.RELEASE
          &lt;constructor-arg  value="3500" /&gt;
          &lt;constructor-arg  ref="dept"/&gt;
          &lt;constructor-arg  value="男" /&gt;</pre> 
+
+<h2>bean的注入方式之二：setter方法注入</h2>
+在bean方法中定义property name对应的setter进行注入。
+setter方法：
+<pre>
+	private InjectionDao injectionDao;
+	
+	public void setInjectionDao(InjectionDao injectionDao) {
+		this.injectionDao = injectionDao;
+	}
+</pre>
+bean配置：
+<pre>
+	&lt;bean id="injectionService" class="com.iceblock.springstudy.injection.InjectionServiceImpl"&gt;
+		&lt;property name="injectionDao" ref="injectionDao"&gt;&lt;/property&gt;
+	&lt;/bean&gt;
+</pre>
