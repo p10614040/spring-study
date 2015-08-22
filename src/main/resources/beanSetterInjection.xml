@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- SETTER注入，会调用bean中的 setXXX 的方式进行注入 -->
+	<bean id="injectionService" class="com.iceblock.springstudy.injection.InjectionServiceImpl">
+		<property name="injectionDao" ref="injectionDao"></property>
+	</bean>
+
+
+	<bean id="injectionDao" class="com.iceblock.springstudy.injection.InjectionDaoImpl">
+	</bean>
+</beans>
