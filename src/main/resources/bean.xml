@@ -4,8 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- lazy-init: 调用的时候才会装载； scope="prototype"：每次调用会生成新的类 -->
+	<!-- lazy-init: 调用的时候才会装载； scope="prototype"：每次调用会生成新的类，所以也是每次调用才会装载 -->
 	<bean id="helloWorld" class="com.iceblock.springstudy.HelloWorld"
+		lazy-init="true" scope="prototype"></bean>
+		
+		
+	<bean id="helloWorld2" class="com.iceblock.springstudy.HelloWorld"
 		lazy-init="true" scope="prototype"></bean>
 
 </beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="defaultInit" default-destroy-method="defaultDestroy">
+	<!-- bean的init和destroy方法创建方式三：beans配置default-init-method和default-destroy-method -->
+	<!-- 方法中可以没有这两个方法，不会有异常 -->
+	<!-- 如果配置了接口或者bean中单独配置了方法，则不会生效 -->
+	<!-- <bean id="beanLifeCycel" class="com.iceblock.springstudy.lifecycel.BeanLifeCycle"></bean> -->
+
+	<!-- bean的init和destroy方法创建方式一：bean配置文件配置init-method和destroy-method -->
+	<!-- 这种方式的优先级低于继承接口的方式 -->
+	<!-- 如果bean中没有对应的方法会提示异常 -->
+	<!-- 如果设置了scope="prototype"的话，destroy方法会失效 -->
+	<bean id="beanLifeCycel" class="com.iceblock.springstudy.lifecycel.BeanLifeCycle"
+		init-method="start" destroy-method="stop" scope="singleton"></bean>
+
+</beans>

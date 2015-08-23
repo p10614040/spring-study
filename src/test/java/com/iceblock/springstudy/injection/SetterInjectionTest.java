@@ -1,30 +1,31 @@
 /**
  * 
  */
-package com.iceblock.springstudy;
+package com.iceblock.springstudy.injection;
 
 import org.junit.Test;
 
+import com.iceblock.springstudy.UnitTestBase;
 import com.iceblock.springstudy.injection.InjectionService;
 
 /**
  * @author YanLiang
  *
  */
-public class ConstructorInjectionTest extends UnitTestBase{
+public class SetterInjectionTest extends UnitTestBase{
 
 	/**
 	 * @param path
 	 * Junit 必须有一个无参构造器供调用实例化
 	 */
-	public ConstructorInjectionTest() {
-		super("classpath*:beanConstructorInjection.xml");
+	public SetterInjectionTest() {
+		super("classpath*:beanSetterInjection.xml");
 	}
 
 	@Test
 	public void TestInjection(){
 		InjectionService service = super.getBean("injectionService");
-		service.save("Yan.liang");
+		service.save("setter注入");
 	}
 	
 }
