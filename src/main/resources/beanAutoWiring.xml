@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="constructor">
+
+	<!-- 自动装配的3种方式，byName，byType，constructor -->
+	<!-- 前2个必须有对应的setter方法 -->
+	<!-- 构造器和byType是根据类型进行查找，如果有多个类型，byType会报错，构造器可以正常运行。 -->
+	<bean id="autoWiringService" class="com.iceblock.springstudy.autowiring.AutoWiringService"></bean>
+
+	<bean id="autoWiringDao" class="com.iceblock.springstudy.autowiring.AutoWiringDao"></bean>
+
+	<bean id="autoWiringDao2" class="com.iceblock.springstudy.autowiring.AutoWiringDao"></bean>
+
+</beans>
