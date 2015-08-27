@@ -7,11 +7,12 @@
 
 	<!-- 自动装配的3种方式，byName，byType，constructor -->
 	<!-- 前2个必须有对应的setter方法 -->
-	<!-- 构造器和byType是根据类型进行查找，如果有多个类型，byType会报错，构造器可以正常运行。 -->
+	<!-- 构造器和byType是根据类型进行查找，如果有多个类型，byType会报错，构造器会再按照id进行查询。 -->
 	<bean id="autoWiringService" class="com.iceblock.springstudy.autowiring.AutoWiringService"></bean>
 
 	<bean id="autoWiringDao" class="com.iceblock.springstudy.autowiring.AutoWiringDao"></bean>
 
-	<bean id="autoWiringDao2" class="com.iceblock.springstudy.autowiring.AutoWiringDao"></bean>
-
+	<!-- 测试有2个相同类型的情况 -->
+	<bean id="autoWiringImpl" class="com.iceblock.springstudy.autowiring.AutoWiringImpl2"></bean>
+	<bean id="autoWiringImpl3" class="com.iceblock.springstudy.autowiring.AutoWiringImpl"></bean>
 </beans>
