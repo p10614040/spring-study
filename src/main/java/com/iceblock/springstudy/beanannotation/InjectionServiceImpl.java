@@ -14,26 +14,7 @@ import org.springframework.stereotype.Service;
 public class InjectionServiceImpl implements InjectionService {
 	
 	@Autowired
-	private InjectionDao injectionDao;
-	
-
-	public void setInjectionDao(InjectionDao injectionDao) {
-		this.injectionDao = injectionDao;
-	}
-
-
-	public InjectionServiceImpl() {
-	}
-
-
-
-	/**
-	 * @param injectionDao
-	 * injectionDao 必须与配置文件中的 name 相同
-	 */
-	public InjectionServiceImpl(InjectionDao injectionDao) {
-		this.injectionDao = injectionDao;
-	}
+	private InjectionDao injectionDao2;
 
 
 
@@ -43,7 +24,7 @@ public class InjectionServiceImpl implements InjectionService {
 	public void save(String message) {
 		
 		System.out.println("开始保存：" + message);
-		injectionDao.save(message);
+		injectionDao2.save(message);
 
 	}
 

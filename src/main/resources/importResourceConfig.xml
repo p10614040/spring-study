@@ -7,9 +7,6 @@
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-	<!-- 扫描注解的bean -->
-	<context:component-scan base-package="com.iceblock.springstudy.beanannotation"></context:component-scan>
-
-	<!-- <context:property-placeholder location="classpath:jdbc.properties"/> -->
+	<!-- 通过注解@ImportResource引入 -->
+	<context:property-placeholder location="jdbc.properties"/>
 </beans>
