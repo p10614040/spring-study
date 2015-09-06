@@ -25,7 +25,7 @@ public class StoreConfig {
 	@Value(value = "${jdbc.password}")
 	private String passWord;
 
-	@Bean(name = "stringStore", initMethod = "init")
+	@Bean(name = "stringStore", initMethod = "init" )
 	public Store getStringStore() {
 		return new StringStore();
 	}

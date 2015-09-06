@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:aop="http://www.springframework.org/schema/aop"
+     xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 切面类 -->
+	<bean id="moocAspect" class="com.iceblock.springstudy.aop.schema.MoocAspect"></bean>
+
+	<!-- 切面实现类 -->
+	<bean id="aspectBiz" class="com.iceblock.springstudy.aop.schema.AspectBiz"></bean>
+
+	<aop:config>
+		<aop:aspect id="moocAspectAOP" ref="moocAspect">
+			<aop:pointcut expression="execution(* com.iceblock.springstudy.aop.schema.*.*(..))" id="moocPointcut"/>
+			<aop:before method="before" pointcut-ref="moocPointcut"/>
+			<aop:after method="after" pointcut-ref="moocPointcut"/>
+			<aop:after-returning method="afterReturning" pointcut-ref="moocPointcut"/>
+			<aop:after-throwing method="afterThrowing" pointcut-ref="moocPointcut"/>
+			<aop:around method="around" pointcut-ref="moocPointcut"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
