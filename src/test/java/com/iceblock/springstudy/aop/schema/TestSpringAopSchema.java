@@ -29,12 +29,12 @@ public class TestSpringAopSchema extends UnitTestBase {
 	@Test
 	public void testAspectSelf() {
 		MoocAspect moocAspect = super.getBean("moocAspect");
-		moocAspect.before();
 	}
 
 	@Test
 	public void testAspect(){
 		AspectBiz aspectBiz = super.getBean("aspectBiz");
-		aspectBiz.biz();
+		aspectBiz.biz("biz");
+		aspectBiz.biz2("biz2");
 	}
 }

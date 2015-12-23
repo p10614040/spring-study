@@ -3,6 +3,7 @@
  */
 package com.iceblock.springstudy.aop.schema;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
@@ -16,8 +17,9 @@ public class MoocAspect {
 	 * @date 2015年9月6日 下午7:00:36
 	 * @Description 方法执行之前通知
 	 */
-	public void before() {
-		System.out.println("MoocAspect before method");
+	public void before(JoinPoint point) {
+		Object[] args = point.getArgs();
+		System.out.println("MoocAspect before method : " + args[0]);
 	}
 	
 	/**
